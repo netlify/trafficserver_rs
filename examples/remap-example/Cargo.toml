@@ -1,0 +1,12 @@
+[package]
+name = "remap-example"
+version = "0.1.0"
+authors = ["David Calavera <david@netlify.com>"]
+edition = "2018"
+
+[dependencies]
+trafficserver_rs = { path = "../../" }
+
+[lib]
+name = "remap_example"
+crate-type = ["cdylib"]
