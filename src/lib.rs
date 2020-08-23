@@ -7,8 +7,30 @@ use std::ffi::{CStr, CString};
 pub mod bindings;
 pub use bindings::*;
 
-mod remap;
+pub mod headers;
+mod helpers;
+pub mod remap;
+pub mod request;
+pub mod response;
+pub mod status;
+pub mod transaction;
+pub mod url;
 pub use remap::*;
+
+#[derive(Debug, thiserror::Error)]
+pub enum Error {
+    #[error(transparent)]
+    Request(#[from] request::Error),
+
+    #[error(transparent)]
+    Response(#[from] response::Error),
+
+    #[error(transparent)]
+    Transaction(#[from] transaction::Error),
+
+    #[error(transparent)]
+    InvalidRawString(#[from] crate::helpers::RawStrError),
+}
 
 pub fn ts_debug(tag: &str, message: &str) {
     let t = CString::new(tag).unwrap_or_default();
