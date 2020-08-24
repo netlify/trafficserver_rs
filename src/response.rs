@@ -17,10 +17,9 @@ pub enum Error {
     GetServerResponseFailed,
 }
 
-/// Wrapper for interacting with request structures
+/// Wrapper for interacting with responses
 ///
-/// Used for reading the client request or cached request.
-/// Or reading and manipulating the server request.
+/// Used for reading the client, server or cached responses.
 ///
 /// Can only be returned from certain transaction methods.
 pub struct Response<'a, T: 'a> {

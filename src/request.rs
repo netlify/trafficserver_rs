@@ -22,8 +22,7 @@ pub enum Error {
 
 /// Wrapper for interacting with request structures
 ///
-/// Used for reading the client request or cached request.
-/// Or reading and manipulating the server request.
+/// Used for reading the client, server or cached request.
 ///
 /// Can only be returned from certain transaction methods.
 pub struct Request<'a, T: 'a> {
