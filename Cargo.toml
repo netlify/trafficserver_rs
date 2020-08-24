@@ -3,12 +3,17 @@ name = "trafficserver_rs"
 version = "0.1.0"
 authors = ["David Calavera <david@netlify.com>"]
 edition = "2018"
-build = "build.rs" 
+build = "build.rs"
 
 [dependencies]
-url = "*"
+num_enum = "0.5.1"
+tokio = { version = "0.2.22", features = ["sync"] }
+thiserror = "1.0.20"
 
 [build-dependencies]
 bindgen = "*"
 serde = {version = "1.0", features = ["derive"]}
 serde_json = "1.0"
+
+[workspace]
+members = ["examples/remap-example"]
