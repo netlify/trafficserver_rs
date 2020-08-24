@@ -7,6 +7,8 @@ use std::ffi::{CStr, CString};
 pub mod bindings;
 pub use bindings::*;
 
+pub mod cache;
+pub mod continuations;
 pub mod headers;
 mod helpers;
 pub mod remap;
